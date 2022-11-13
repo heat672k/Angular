@@ -1,0 +1,36 @@
+<mat-card class="container">
+    <mat-card-content>
+
+        <form [formGroup]="formGroup" class="login-form" (ngSubmit)="onRegister()">
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+              </mat-form-field>
+        
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+              </mat-form-field>
+
+              <mat-radio-group aria-label="Select an option" class="full-width" formControlName="type_choice">
+                <mat-radio-button [value]="true" >User</mat-radio-button>
+                <mat-radio-button [value]="false">Org</mat-radio-button>
+              </mat-radio-group>
+              
+              
+              <button mat-raised-button color="accent" type="submit" class="full-width">Register</button>
+        </form>
+
+        <div>
+            <p>Have an account? <button mat-flat-button color="primary" [routerLink]="['/login']">Log In</button></p>
+            
+        </div>
+
+    </mat-card-content>
+</mat-card>

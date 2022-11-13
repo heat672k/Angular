@@ -1,0 +1,9 @@
+<mat-card class="container">
+    <mat-card-title>
+        {{profile_data?.name}}, {{profile_data?.email}}
+    </mat-card-title>
+    <mat-card-content>
+        <app-profile-offers *ngIf="isOrgLoggedIn"></app-profile-offers>
+        <app-profile-applications *ngIf="!isOrgLoggedIn"></app-profile-applications>
+    </mat-card-content>
+</mat-card>

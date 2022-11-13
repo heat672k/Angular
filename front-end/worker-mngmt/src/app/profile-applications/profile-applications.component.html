@@ -1,0 +1,25 @@
+<table mat-table [dataSource]="applications" class="mat-elevation-z8 container">
+
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Publisher">
+      <th mat-header-cell *matHeaderCellDef> Publisher </th>
+      <td mat-cell *matCellDef="let element"> {{element.orgName}} </td>
+    </ng-container>
+  <!-- TODO: Add Pipe for status conversion -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Go to">
+        <th mat-header-cell *matHeaderCellDef> Links </th>
+        <td mat-cell *matCellDef="let element"> <a [routerLink]="['/offer', element.id]">Navigate</a> </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

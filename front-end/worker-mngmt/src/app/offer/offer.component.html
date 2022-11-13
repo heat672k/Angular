@@ -1,0 +1,24 @@
+<mat-card class="container">
+    <mat-card-title>
+        {{offer?.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        <span>{{offer?.type}} {{offer?.category}} Score: {{offer?.likes}}</span>
+
+        <div style="float: right;">
+            <button class="spaced-button" mat-raised-button color="accent" (click)="giveReview(true, offer?.id)"><mat-icon>thumb_up</mat-icon> Like </button>
+        </div>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+        {{offer?.description}}
+    </mat-card-content>
+    
+    <mat-card-actions >
+        <button class="spaced-button" *ngIf="isUserApplied"  mat-raised-button color="primary" (click)="apply(this.offer?.id)"> Apply </button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="container" *ngIf="isPublisherLoggedIn">
+    <app-offer-applicants [id]="offer?.id"></app-offer-applicants>
+</mat-card>
